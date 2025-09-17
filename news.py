@@ -8,8 +8,8 @@ import pandas as pd
 
 load_dotenv()
 
-NaverId = os.getenv("NaverId")
-NaverSecret = os.getenv("NaverSecret")
+NaverId = os.getenv("NaverId") or st.secrets["NaverId"]
+NaverSecret = os.getenv("NaverSecret") or st.secrets["NaverSecret"]
 
 st.title("뉴스 검색하기")
 
@@ -69,4 +69,5 @@ for history in st.session_state["history"]:
     
 if st.button("기록 삭제"):
     st.session_state.clear()
+
 
